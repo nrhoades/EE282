@@ -17,6 +17,9 @@ less bar
 cd ../
 rm -r ./foo</code></pre></div>
 
+### Question 1 Comments:
+Very well done thank you. Also just an fyi, if you want to avoid getting prompts when deleting you can use the switch -rf intead of -r, just be very careful when you do this and don't delete all your data, especially when using wildcards i.e rm -rf * <-- very dangerous.
+
 <h2 id="toc_2">Question 2</h2>
 
 <p>Move to an R environment.
