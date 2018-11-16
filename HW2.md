@@ -81,3 +81,7 @@ Good job.
 echo  -e &#39;#!/bin/bash/\necho Hello World&#39;  &gt;&gt; foo.sh
 chmod 744 foo.sh
 sh foo.sh</code></pre></div>
+
+### Question 3 Comments
+
+Mostly fine, but you'll need to allow a script to be readable in order for it to be executable. So, upgrade your 4s to 5s and it works.
