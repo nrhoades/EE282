@@ -59,6 +59,10 @@ mtmatrix [,&#39;mpg&#39;]</code></pre></div>
 You are still able to access the same data in the matrix, but each mpg is pecfically connected to a car.
 Prints differently.</p>
 
+### Question 1 Comments:
+
+Good job.
+
 <h2 id="toc_3">Question 3</h2>
 
 <p>Outside of an R environmnt</p>
