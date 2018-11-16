@@ -59,6 +59,10 @@ mtmatrix [,&#39;mpg&#39;]</code></pre></div>
 You are still able to access the same data in the matrix, but each mpg is pecfically connected to a car.
 Prints differently.</p>
 
+### Question 1 Comments:
+
+Good job.
+
 <h2 id="toc_3">Question 3</h2>
 
 <p>Outside of an R environmnt</p>
@@ -77,3 +81,7 @@ Prints differently.</p>
 echo  -e &#39;#!/bin/bash/\necho Hello World&#39;  &gt;&gt; foo.sh
 chmod 744 foo.sh
 sh foo.sh</code></pre></div>
+
+### Question 3 Comments
+
+Mostly fine, but you'll need to allow a script to be readable in order for it to be executable. So, upgrade your 4s to 5s and it works.
