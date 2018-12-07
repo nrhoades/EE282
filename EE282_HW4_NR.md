@@ -43,7 +43,7 @@ plotCDF2 {Whole_genome,100kb,99kb}_sort.txt /dev/stdout \
 | tee WG_v_100_99.png \
 | display
 ```
-
+#Combined CDF#
 ![CDF](https://github.com/nrhoades/EE282/blob/master/WG_v_100_99.png)
 
 ```
@@ -94,11 +94,23 @@ pdf("WG_gc.pdf")
 dev.off()
 
 ```
+
+#Whole genome size distribution
 ![Whole_genome_Size](https://github.com/nrhoades/EE282/blob/master/WG_size.png)
+
+#Greater than 100kb size distribution
 ![<100kb_Size](https://github.com/nrhoades/EE282/blob/master/kb100_size.png)
+
+#Less than 100kb size distribution
 ![>100kb_Size](https://github.com/nrhoades/EE282/blob/master/kb99_size.png)
+
+#Whole genome gc distribution
 ![Whole_genome_gc](https://github.com/nrhoades/EE282/blob/master/WG_gc.png)
+
+#Greater than 100kb gc distribution
 ![<100kb_gc](https://github.com/nrhoades/EE282/blob/master/kb100_gc.png)
+
+#Less than 100kb gc distribution
 ![>100kb_gc](https://github.com/nrhoades/EE282/blob/master/kb99_gc.png)
 
 
