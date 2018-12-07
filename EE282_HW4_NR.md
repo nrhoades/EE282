@@ -42,8 +42,11 @@ bioawk -c fastx ' { print length($seq) }' 99kb.fa  \
 plotCDF2 {Whole_genome,100kb,99kb}_sort.txt /dev/stdout \
 | tee WG_v_100_99.png \
 | display
+```
 
+![CDF](https://github.com/nrhoades/EE282/blob/master/WG_v_100_99.png)
 
+```
 bioawk -c fastx ' { print gc($seq) }' dmel-all-chromosome-r6.24.fasta | sort -rn | awk ' BEGIN { print "Assembly\tGC" } { print "WG_Ctg\t" $1 } ' > Whole_genome_gc_sort.txt
 
 bioawk -c fastx ' { print gc($seq) }' 100kb.fa | sort -rn | awk ' BEGIN { print "Assembly\tGC" } { print "WG_Ctg\t" $1 } ' > 100kb_gc_sort.txt
@@ -91,9 +94,14 @@ pdf("WG_gc.pdf")
 dev.off()
 
 ```
+![Whole_genome_Size](https://github.com/nrhoades/EE282/blob/master/WG_size.png)
+![<100kb_Size](https://github.com/nrhoades/EE282/blob/master/kb100_size.png)
+![>100kb_Size](https://github.com/nrhoades/EE282/blob/master/kb99_size.png)
+![Whole_genome_gc](https://github.com/nrhoades/EE282/blob/master/WG_gc.png)
+![<100kb_gc](https://github.com/nrhoades/EE282/blob/master/kb100_gc.png)
+![>100kb_gc](https://github.com/nrhoades/EE282/blob/master/kb99_gc.png)
 
-Sequence lengths:
-bioawk -> plotCDF2
+
 
 
 **Assemble a genome from MinION reads**
@@ -169,7 +177,7 @@ mummerplot --fat --layout --filter -p ${PREFIX} ${PREFIX}.delta \
   -R ${REF} -Q ${QRY} --png
 
 ```
-![/Users/nichloasrhoades/Desktop/untitled folder/GC-MS stuff/PCA (2).png](png)
+![Mummer_plot](https://github.com/nrhoades/EE282/blob/master/flybase_unitigs.png)
 
 **Compare your assembly to both the contig assembly and the scaffold assembly from the Drosophila melanogaster on FlyBase using a contiguity plot**
 
@@ -198,6 +206,8 @@ plotCDF2 {Scaffold,Contigs,My_assembly}_sort.txt /dev/stdout \
 | tee Scaf_Contig_Mine_CDF.png \
 | display
 ```
+![CDF2](https://github.com/nrhoades/EE282/blob/master/Scaf_Contig_Mine_CDF.png)
+
 
 **Calculate BUSCO scores of both assemblies and compare them**
 
