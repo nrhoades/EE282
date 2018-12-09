@@ -259,4 +259,6 @@ BUSCO.py -c 40 -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}
 
 ```
 _Contig assembly Busco  C:98.3%[S:97.8%,D:0.5%],F:0.9%,M:0.8%,n:2799_
+
+
 _My Busco C:0.5%[S:0.5%,D:0.0%],F:1.1%,M:98.4%,n:2799_
