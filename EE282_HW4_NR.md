@@ -22,6 +22,8 @@ bioawk -c fastx 'length($seq) <= 100000{ print ">"$name; print $seq }' dmel-all-
 faSize 100kb.fa > summary_100kb.txt
 faSize 99kb.fa > summary_99kb.txt
 
+less summary_100kb.txt
+less summary_99kb.txt
 
 bioawk -c fastx ' { print length($seq) }' dmel-all-chromosome-r6.24.fasta.gz \
 | sort -rn \
@@ -158,7 +160,7 @@ cp unitig.fa ../../../../melanogaster_data
 ```
 
 **Assembly assessment**
-_N50 was calculated above, to see results:_
+_N50 was calculated above, to see results Reference N50= 21,485,538 Our N50= 4,494,246_
 
 ```
 less ./nanopore_assembly/nanopore_assembly/output/reports/n50.txt
@@ -256,3 +258,5 @@ BUSCO.py -c 40 -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}
 
 
 ```
+_Contig assembly Busco  C:98.3%[S:97.8%,D:0.5%],F:0.9%,M:0.8%,n:2799_
+_My Busco C:0.5%[S:0.5%,D:0.0%],F:1.1%,M:98.4%,n:2799_
