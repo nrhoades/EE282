@@ -211,6 +211,10 @@ ggplot(pcoa_cord,aes(x=PCoA1, y=PCoA2, color=factorColor)) +
   dev.off()
 
 ```
+# Species level bray curtis PcoA
+
+![Heatmap1](https://github.com/nrhoades/EE282/blob/figures_for_final/Colon_species_pcoa.png)
+
 
 ## The next script will make a heatmap of the 10 most abundant bacterial species still in R
 
@@ -250,7 +254,10 @@ levelplot(t(y), height=0.3, col.regions=rev(hmcol), scales=list(x=list(rot=90)),
 dev.off()
 
 ```
-## log transformed heatmap
+# Untransformed Heatmap
+![Heatmap1](https://github.com/nrhoades/EE282/blob/figures_for_final/Colon_species_HM.png)
+
+## plotting log transformed heatmap
 
 ```
 f4 <- log10(f4+1)
@@ -266,3 +273,5 @@ png(filename="Colon_species_log_HM.png",
 levelplot(t(y), height=0.3, col.regions=rev(hmcol), scales=list(x=list(rot=90)),main="", colorkey=list(space="top"), xlab="", ylab="", pretty=TRUE, width=0.5, cexRow=0.1, cexCol=0.1, aspect=2.5)
 dev.off()
 ```
+# Log transformed heatmap
+![Heatmap2](https://github.com/nrhoades/EE282/blob/figures_for_final/Colon_species_log_HM.png)
