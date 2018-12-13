@@ -6,7 +6,7 @@ Main goals
 2. Plot this data using principal cordinate analysis.<br />
 3.Look at the 10 most abundant bacterial species using a heatmap. <br />
 
-##Project info
+## Project info
 This data is from a cohort of infant rhesus macaques that had chronic diarrhea and had to be Euthanized. We have shotgun metagenomic data from colonic luminal contents along with some healthy controls
 
 
@@ -16,7 +16,7 @@ These libraries are each about 20-30 million 100bp sequences each so I reduced t
 
 The data table I indroduce later is from the full dataset.<br />
 
-##Setting up the project folder
+## Setting up the project folder
 
 
 ```
@@ -41,21 +41,21 @@ cd /pub/jje/ee282/rhoadesn/Final_project/sequences
 #seqtk sample -s100 Sample1.fq.gz 100000 > Sample1_100k.fq  
 ```
 
-#Example Scripts Do not run
+# Example Scripts Do not run
 I wrote out how to run each step on a single sample, it would be inefficent to run these all one at a time for 16 samples. The reall scripts are in the immplmentations section.
 
-##Trimming low quality bases using trimmomatic. <br />
+## Trimming low quality bases using trimmomatic. <br />
 ___We will actutally implment this using a perl loop, but below is a single sample example___
 
 
-###Sequence QC using trimmomatic
+### Sequence QC using trimmomatic
 
 module load trimmomatic
 
-###Example single sample script (.jar file probaly lacking on UCI server)
+### Example single sample script (.jar file probaly lacking on UCI server)
 java -j /path_to_jar_file/trimmomatic-0.36.jar SE -threads 1 -phred33 Sample1_100k.fq.gz ../trim/Sample1.qc.fq.gz ILLUMINACLIP:NexteraPE-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 
-###Remove host sequence. Since these metagenomes are from luminal contents we need to remove any read that map to the host genome. Using Bowtie2.
+### Remove host sequence. Since these metagenomes are from luminal contents we need to remove any read that map to the host genome. Using Bowtie2.
 
 ___Again there is a perl loop further down that we will actually implment___
 
@@ -64,7 +64,7 @@ Change directory to the newly trimmed sequence
 
 cd ../trim
 
-###Example Single sample Script
+### Example Single sample Script
 
 module load bowtie2
 
@@ -72,7 +72,7 @@ bowtie2 -q -p 1 -x /path_to_bowtie_index/ -U Sample1.qc.fq.gz --quiet --un ../de
 
 
 
-###Asigning taxonomy using MetaPhlan2.
+### Asigning taxonomy using MetaPhlan2.
 This assigns taxonomy to short reads.
 
 ___Again there is a perl loop further down that we will actually implment___
@@ -87,13 +87,13 @@ module load metaphlan2
 metaphlan2.py Sample1.decon.qc.fq.gz --input_type fastq --nproc 1 --tax_lev s --ignore_viruses --sample_id Sample1 -o ../species/SampleID.species.txt
 
 
-#Implementation (run these)
+# Implementation (run these)
 
 
 This all runs pretty  fast on the scalled down data set even with 1 core
 
 
-###Trimming
+### Trimming
 
 ```
 qrsh -q class
@@ -105,7 +105,7 @@ module load metaphlan2
 cd /pub/jje/ee282/$USER/Final_project_NR/sequences
 perl ../Scripts/run_trimmomatic_SE.pl
 ```
-###Decontamination<br />
+### Decontamination<br />
 Had to nohup the output because the script was flooding my terminal with dialog. (sorry)
 
 ```
@@ -114,7 +114,7 @@ nohup perl ../Scripts/run_bowtie2NR.pl
 rm nohup.out
 
 ```
-###Speices identification
+### Speices identification
 ## Metaphlan module is broken on UCI Cluster
 
 ```
@@ -126,7 +126,7 @@ perl run_metaphlan2.pl
 cd /pub/jje/ee282/$USER/Final_project_NR
 cp /pub/pub/jje/ee282/rhoadesn/Final_project_NR/species
 ```
-###Merge Data
+### Merge Data
 Merge into a single table
 and remove the 1st line of the table that we dont need
 
@@ -138,9 +138,9 @@ head ../results/Colon_species.txt
 
 
 ```
-#Part 2 (plotting)
-###Next we will plot the species level data in R this is using the output from the full dataset not the 100k version.
-###First we generate a principal component analysis
+# Part 2 (plotting)
+### Next we will plot the species level data in R this is using the output from the full dataset not the 100k version.
+### First we generate a principal component analysis
 
 ```
 cd /pub/jje/ee282/$USER/Final_project_NR/results
@@ -211,6 +211,7 @@ ggplot(pcoa_cord,aes(x=PCoA1, y=PCoA2, color=factorColor)) +
   dev.off()
 
 ```
+
 ## The next script will make a heatmap of the 10 most abundant bacterial species still in R
 
 ```
