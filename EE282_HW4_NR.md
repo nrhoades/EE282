@@ -115,8 +115,9 @@ dev.off()
 #Less than 100kb gc distribution
 ![>100kb_gc](https://github.com/nrhoades/EE282/blob/master/kb99_gc.png)
 
+### Comments on "Summarize partitions of a genome assembly"
 
-
+Good job. I know your results are faithfully recorded in the txt files redirected from the ```faSize``` utility, but in general, please record those answes in this document. Part of this class is encouraging good habits. Otherwise, great job.
 
 **Assemble a genome from MinION reads**
 
